@@ -1,3 +1,8 @@
 library(microbenchmark)
 
-microbenchmark(sum(seq(1,999)[seq(1,999) %% 3 == 0 | seq(1,999) %% 5 == 0]), times =1000)
+microbenchmark({
+  tt <- seq(1,999)
+  sum(tt[tt %% 3 == 0 | tt %% 5 == 0])
+  }, times =10000)
+
+# R is significantly faster for problem 1
